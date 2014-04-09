@@ -9,34 +9,29 @@ public class Calculator{
 		} catch (Exception e){}
 	}
 
-	private boolean CHECK_IF_DOUBLE(String s){
-		Stirng[] containArray = [12];
-		containArray[0] = "1";
-		
-	}
-
 	public void calculatorMode(){
 		CalculatorStack calStack = new CalculatorStack();
 		boolean quitMode = false;
 		Scanner scan = new Scanner(System.in);
 		while (!quitMode){
-			String input = scan.nextLine();
-			System.out.println(input);
-			System.out.println(input.contains("5"));
+			try{
+				String input = scan.nextLine();
+				if (input.equals("quit") || input.equals("Quit") || input.equals("Q")
+					|| input.equals("q") || input.equals("die") || input.equals("Die")){
+					quitMode = true;
+				}
+				if (input.equals("+")){
+					calStack.push(calStack.pop() + calStack.pop());
+					System.out.println(calStack.peek());
+				}
+			} catch(Exception e){
+				double input = scan.nextDouble();
+				calStack.push((int)Math.round(input));
+			}
 
-			if (input.contains("1234567890.-") == true){
-				calStack.push(Double.parseDouble(input));
-				System.out.println("IDIDIT");
-			}
-			if (input.equalsIgnoreCase("quit")){
-				quitMode = true;
-			}
-			if (input.equals("+")){
-				calStack.push(calStack.pop() + calStack.pop());
-				System.out.println(calStack.peek());
-			}
 
 		}
+
 	}
 
 

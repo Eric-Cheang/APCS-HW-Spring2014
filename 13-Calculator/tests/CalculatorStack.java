@@ -63,22 +63,4 @@ public class CalculatorStack{
 	public String toString(){
 		return WHOLE_STACK_PRINT();
 	}
-
-	public static void main(String[] args){
-		CalculatorStack test = new CalculatorStack();
-		test.push(5.2);
-		test.push(303);
-		test.push(2.2);
-		test.push(5.93294);
-		test.push(5.93294);
-		test.push(5.93294);
-		test.push(5.93294);
-		test.push(5.93294);
-		test.push(5.93294);
-		test.push(5.93294);
-		System.out.println(test);
-		System.out.println(test.peek());
-		System.out.println(test.pop());
-		System.out.println(test.pop());
-	}
 }
