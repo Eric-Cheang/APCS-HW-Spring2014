@@ -10,7 +10,7 @@ public class Calculator{
 	}
 
 	public void calculatorMode(){
-		CalculatorStack calStack = new CalculatorStack();
+		MyStack calStack = new MyStack();
 		boolean quitMode = false;
 		Scanner scan = new Scanner(System.in);
 		while (!quitMode){
@@ -22,7 +22,10 @@ public class Calculator{
 				}
 				if (input.equals("+")){
 					calStack.push(calStack.pop() + calStack.pop());
-					System.out.println(calStack.peek());
+					System.out.println("WORKSSSS?");
+				}
+				if(input.equalsIgnoreCase("view")){
+					System.out.println(calStack);
 				}
 			} catch(Exception e){
 				double input = scan.nextDouble();
@@ -37,6 +40,11 @@ public class Calculator{
 
 
 		public static void main(String[] args){
+
+			CalculatorStack test = new CalculatorStack();
+			test.push(20);
+			test.push(50);
+			System.out.println(test);
 			
 			Calculator calculator = new Calculator();
 

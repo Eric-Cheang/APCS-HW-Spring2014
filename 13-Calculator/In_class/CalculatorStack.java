@@ -1,19 +1,19 @@
 public class CalculatorStack{
 
-	int top; 
+	double top; 
 	int stackLength = 0; 
-	int[] stackArray;
+	double[] stackArray;
 
 	public CalculatorStack(){
-		stackArray = new int[10];
+		stackArray = new double[10];
 	}
 
 	public void STACK_ARRAY_EXTEND(){
-		int[] tempArray = new int[stackArray.length + 10];
+		double[] tempArray = new double[stackArray.length + 10];
 			////////For each of the elements in stackArray, it'll go through and add
-			//////// to the temp array. It starts at 1 as 0 will be int
+			//////// to the temp array. It starts at 1 as 0 will be double
 		int arrayCounter = 1;
-		for (int s: stackArray) {
+		for (double s: stackArray) {
 			tempArray[arrayCounter] = s;
 			arrayCounter++;
 		}
@@ -22,27 +22,28 @@ public class CalculatorStack{
 		stackArray = tempArray;
 	}
 
-	private void STACK_SET_TOP(int INT){
+	private void STACK_SET_TOP(double DOUBLE){
 		int arrayCounter = 1;
-		int replacedE = stackArray[0];
-		stackArray[0] = INT;
-		for (int s: stackArray ) {
-			int replacedEtemp = replacedE;
+		double replacedE = stackArray[0];
+		stackArray[0] = DOUBLE;
+		for (double s: stackArray ) {
+			double replacedEtemp = replacedE;
 			replacedE = stackArray[arrayCounter+1];
 			stackArray[arrayCounter] = replacedEtemp;
 		}
 	}
 			
-	public void push(int INT){
-		top = INT;
+	public void push(double DOUBLE){
+		top = DOUBLE;
 		//first case: array is too small to add another element
 		if (stackLength == stackArray.length - 1){
 			STACK_ARRAY_EXTEND();
-			STACK_SET_TOP(INT);
+			STACK_SET_TOP(DOUBLE);
 		}
 		else{
-			STACK_SET_TOP(INT);
+			STACK_SET_TOP(DOUBLE);
 		}
+		stackLength++;
 	}
 
 	private void STACK_REMOVE_TOP(){
@@ -55,18 +56,29 @@ public class CalculatorStack{
 		}
 	}
 
-	public int pop(){
-		int retVar = stackArray[0];
+	public double pop(){
+		double retVar = stackArray[0];
 		STACK_REMOVE_TOP();
+		stackLength--;
 		return retVar;
 	}
 
-	private int ADD_THEN_POP(){
+	private double ADD_THEN_POP(){
 		this.push(stackArray[0]);
 		return (this.pop());
 	}
 
-	public int peek(){
+	public double peek(){
 		return ADD_THEN_POP();
 	}
+
+	public String toString(){
+		String retVar = "";
+		for (int x = 0; x < stackLength; x++){
+			retVar = retVar + stackArray[x];
+		}
+		return retVar;
+	}
+
+	
 }
