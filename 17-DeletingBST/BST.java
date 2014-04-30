@@ -15,6 +15,21 @@ public class BST{
 	public int getLength(){
 		return length;
 	}
+	
+	public void print(){
+		print(root);
+	}
+
+	public void print(Node n){
+		if (n == null)
+			return;
+		else{
+			print(n.getLeft());
+			System.out.println(n.getData());
+			print(n.getRight());
+			//System.out.println(n.getData());
+		}
+	}
 
 	public void insert(Node given){ //search function is embedded in here
 		length++;
@@ -28,7 +43,7 @@ public class BST{
 				curNode = curNode.getRight();
 			}
 		}
-		if (curNode.getData() > given.getData()){ //curnode might be dropped out of existance
+		if (curNode.getData() > given.getData()){ 
 			curNode.setLeft(given);
 		}
 		else{
@@ -54,7 +69,7 @@ public class BST{
 	public Node search(int x){
 		return search2(root,x);
 	}
-
+/*
 	public Node delete(int x){
 		Node rmNode = search(x);
 		if (rmNode.isLeaf()){
@@ -89,5 +104,6 @@ public class BST{
 		}
 		return rmNode;
 	}
+	*/
 
 }

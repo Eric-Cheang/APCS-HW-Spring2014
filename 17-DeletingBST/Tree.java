@@ -7,6 +7,7 @@ public class Tree{
 		test.insert(placeholder);
 		//System.out.println(root.getRight());
 		Node bettabeleft = new Node(49999);
-		System.out.println(test.delete(50));
+		test.insert(bettabeleft);
+		test.print(root);
 	}
 }
