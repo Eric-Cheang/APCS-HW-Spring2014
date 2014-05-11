@@ -71,7 +71,7 @@ public class BST{
 				rmNode.getParent().getParent().setLeft(rmNode.getLeft());
 			}
 			if (rmNode.getData() > rmNode.getParent().getData()){
-				rmNode.getParent().getParent().setLeft();
+				rmNode.getParent().getParent().setRight();
 			}
 		}
 

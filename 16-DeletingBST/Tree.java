@@ -9,4 +9,4 @@ public class Tree{
 		Node bettabeleft = new Node(49999);
 		System.out.println(test.delete(50));
 	}
-}
+}y
