@@ -10,4 +10,4 @@ public class Tree{
 		test.insert(bettabeleft);
 		test.print(root);
 	}
-}
+}y
